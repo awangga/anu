@@ -3,10 +3,8 @@
 """
 class dari awangga network util
 """
+from scapy.all import ARP,Ether,sendp
 
-
-
-from scapy.all import *
 
 class Anu(object):
 	def sendArp(self,mac_rec,ip_rec,ip_target):	
