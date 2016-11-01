@@ -5,5 +5,8 @@ sending update ARP table in LAN Network using :
 ```sh
 sendArp('macrecord','iprecord','ipofreceiverupdate')
 ```
-
+check is port open
+```sh
+isOpen('host',port)
+```
 

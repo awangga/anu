@@ -4,7 +4,7 @@
 class dari awangga network util
 """
 from scapy.all import ARP,Ether,sendp
-
+from socket import *
 
 class Anu(object):
 	def sendArp(self,mac_rec,ip_rec,ip_target):	
@@ -25,4 +25,12 @@ class Anu(object):
 				result=result+ip+' , '
 				total += 1
 		return str(total)+' Alive Node: '+result
+	def isOpen(self,ipadd,port):
+		s=socket(AF_INET, SOCK_STREAM)
+		s.settimeout(3)
+		if (s.connect_ex((ipadd,port))==0):
+			return True
+		else:
+			return False
+		s.close()
 			
